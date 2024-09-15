@@ -50,7 +50,6 @@ const CampaignForm = () => {
     <div className="campaign-form">
       <h1 className="title">Create Email Campaign</h1>
       <div className="form-group">
-        <label htmlFor="campaignName" className="label">Campaign Name</label>
         <div className="input-wrapper">
           <input
             type="text"
@@ -59,6 +58,7 @@ const CampaignForm = () => {
             name="campaignName"
             value={formData.campaignName}
             onChange={handleChange}
+            placeholder="Enter campaign name"
             required
           />
           {formData.campaignName && (
@@ -66,7 +66,13 @@ const CampaignForm = () => {
           )}
         </div>
         <div className="buttons">
-          <button className="btn submit" onClick={handleSubmit}>Submit</button>
+          <button 
+            className="btn submit" 
+            onClick={handleSubmit}
+            disabled={!formData.campaignName.trim()}
+          >
+            Submit
+          </button>
         </div>
       </div>
     </div>
