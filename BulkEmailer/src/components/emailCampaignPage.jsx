@@ -6,7 +6,6 @@ import UploadModal from "./fileUploadModal";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import ConfirmationModal from "./confirmModal";
 import { ToastContainer, toast, useToast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const EmailCampaign = () => {
     const location = useLocation();
@@ -23,6 +22,12 @@ const EmailCampaign = () => {
     const [emails, setEmails] = useState([]);
     const [isDropdownOpen, setDropdownOpen] = useState(false);
     const [copyButtonText, setCopyButtonText] = useState('Copy');
+    const [emailContent, setEmailContent] = useState("");
+
+    const handleContentChange = (e) => {
+        setEmailContent(e.target.value); // Update state with the current value
+      };
+    
 
     const selectSenderClick = () => {
         setSenderDropdownOpen(!senderDropdownOpen);
@@ -125,6 +130,38 @@ const EmailCampaign = () => {
             );
         }
     };
+
+
+    const sendEmail = async () => {
+        console.log(emails,"emailList")
+        try {
+          const response = await fetch('http://localhost:8080/api/v1/emailer/sendEmail', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              subject: subjectName,
+              body: emailContent,
+              mailIds: emails,
+            }),
+          });
+      
+          // Checking if the request was successful
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+      
+          // Parse the response
+          const data = await response.json();
+          
+          // Return the status from the API response
+          return data.status;
+        } catch (error) {
+          console.error('Error sending email:', error);
+          return 'failed';
+        }
+      };
 
     const downloadTemplate = () => {
         fetch('http://localhost:8080/api/v1/emailer/downloadTemplate', {
@@ -247,6 +284,7 @@ const EmailCampaign = () => {
                     <textarea
                         className="email-content-textarea"
                         placeholder="Write your email content here..."
+                        onChange={handleContentChange}
                     ></textarea>
                 </div>
 
@@ -279,7 +317,7 @@ const EmailCampaign = () => {
 
             </div>
 
-                <button className="btn submit" >Send Email</button>
+                <button className="btn submit" onClick={sendEmail} >Send Email</button>
 
                 <ToastContainer />
         </div>
