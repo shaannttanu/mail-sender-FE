@@ -72,7 +72,7 @@ const EmailCampaign = () => {
         {
             const file = event.target.files[0]; 
             if (file) {
-            setFileName(file.name); // Update the file name in the state
+            setFileName(file.name);
             }
         }
         catch(e)
@@ -87,7 +87,6 @@ const EmailCampaign = () => {
     const openModal = () => setModalOpen(true);
     const closeModal = () => setModalOpen(false);
 
-    // Function to handle the email list after file upload
     const handleUploadedEmails = (uploadedEmails) => {
         setEmails(uploadedEmails);
     };
