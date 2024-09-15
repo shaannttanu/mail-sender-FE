@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useLocation, useNavigate } from 'react-router-dom';
 import UploadModal from "./fileUploadModal";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import ConfirmationModal from "./confirmModal";
 import { ToastContainer, toast, useToast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -18,6 +19,7 @@ const EmailCampaign = () => {
     const [senderDropdownOpen, setSenderDropdownOpen] = useState(false);
     const [selectedSender, setSelectedSender] = useState('');
     const [modalOpen, setModalOpen] = useState(false);
+    const [confirmationModalOpen, setConfirmationModalOpen] = useState(false); 
     const [emails, setEmails] = useState([]);
     const [isDropdownOpen, setDropdownOpen] = useState(false);
     const [copyButtonText, setCopyButtonText] = useState('Copy');
@@ -40,7 +42,16 @@ const EmailCampaign = () => {
     };
 
     const backButton = () => {
-        navigate('/');
+        setConfirmationModalOpen(true);  
+    }
+
+    const handleConfirm = () => {
+        navigate('/'); 
+        setConfirmationModalOpen(false); 
+    };
+
+    const handleCancel = () => {
+        setConfirmationModalOpen(false); 
     };
 
     const subjectNames = (e) => {
@@ -242,6 +253,13 @@ const EmailCampaign = () => {
 
 
             {modalOpen && <UploadModal onClose={closeModal} onUpload={handleUploadedEmails} />}
+
+            {confirmationModalOpen && (
+                <ConfirmationModal
+                    onConfirm={handleConfirm}
+                    onCancel={handleCancel}
+                />
+            )}
             
             <div className="section">
                 <div className="section-header">

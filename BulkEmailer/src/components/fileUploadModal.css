@@ -8,6 +8,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    align-items: flex-start;
+    padding-top: 20px;
 }
 
 .modal-content {
@@ -43,7 +45,6 @@
 .file-input::file-selector-button {
     padding: 10px;
     background-color: #007bff;
-    /* Blue button color */
     border: none;
     border-radius: 4px;
     color: #fff;
@@ -75,7 +76,7 @@
 }
 
 .upload {
-    background-color: #007bff;
+    background-color: #f44336;
 }
 
 .upload:hover {
@@ -83,11 +84,11 @@
 }
 
 .cancel {
-    background-color: #f44336;
+    background-color: #007bff;
 }
 
 .cancel:hover {
-    background-color: #e53935;
+    background-color: #0056b3;
 }
 
 .modal-button:disabled {
