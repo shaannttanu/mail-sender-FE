@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import { useLocation, useNavigate } from 'react-router-dom';
 import UploadModal from "./fileUploadModal";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import ConfirmationModal from "./confirmModal";
 import { ToastContainer, toast, useToast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ConfirmationModal from "./confirmModal";
 
 const EmailCampaign = () => {
     const location = useLocation();
@@ -19,10 +19,10 @@ const EmailCampaign = () => {
     const [senderDropdownOpen, setSenderDropdownOpen] = useState(false);
     const [selectedSender, setSelectedSender] = useState('');
     const [modalOpen, setModalOpen] = useState(false);
-    const [confirmationModalOpen, setConfirmationModalOpen] = useState(false); 
     const [emails, setEmails] = useState([]);
     const [isDropdownOpen, setDropdownOpen] = useState(false);
     const [copyButtonText, setCopyButtonText] = useState('Copy');
+    const [confirmationModalOpen, setConfirmationModalOpen] = useState(false); 
 
     const selectSenderClick = () => {
         setSenderDropdownOpen(!senderDropdownOpen);
@@ -65,12 +65,12 @@ const EmailCampaign = () => {
         setSubject('');
     };
 
-    const [fileName, setFileName] = useState(""); 
+    const [fileName, setFileName] = useState(""); // Empty state initially
       
     const handleFileChange = (event) => {
         try
         {
-            const file = event.target.files[0]; 
+            const file = event.target.files[0]; // Get the selected file
             if (file) {
             setFileName(file.name); // Update the file name in the state
             }
@@ -101,10 +101,11 @@ const EmailCampaign = () => {
         toast.success("Emails copied to clipboard..")
         setTimeout(() => {
             setCopyButtonText('Copy');
-        }, 2000); 
+        }, 2000); // Reset the button text after 2 seconds
     };
 
     const renderEmails = () => {
+        // Combine the emails into a single string and join them with commas
         const emailString = emails.join(', ');
         const maxVisibleLength = 40;
 
@@ -149,7 +150,7 @@ const EmailCampaign = () => {
             document.body.appendChild(link);
             link.click();
             link.parentNode.removeChild(link);
-            toast.success("Template Downloaded for your reference");
+            toast.success("Template downloaded for your reference..");
         })
         .catch(error => {
             console.error('Error downloading template:', error);
@@ -251,9 +252,15 @@ const EmailCampaign = () => {
                     ></textarea>
                 </div>
 
+                {/* {confirmationModalOpen && (
+                <ConfirmationModal
+                    onConfirm={handleConfirm}
+                    onCancel={handleCancel}
+                />
+            )} */}
+
 
             {modalOpen && <UploadModal onClose={closeModal} onUpload={handleUploadedEmails} />}
-
             {confirmationModalOpen && (
                 <ConfirmationModal
                     onConfirm={handleConfirm}
@@ -265,7 +272,7 @@ const EmailCampaign = () => {
                 <div className="section-header">
                     <h3>Email Attachments</h3>
                     <div className="button-group">
-                    <label className="action-button label">
+                    <label className="action-button-label">
                         Attach File
                         <input 
                         type="file" 

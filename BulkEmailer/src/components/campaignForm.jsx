@@ -1,6 +1,8 @@
 import './campaignform.css'; 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast, useToast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CampaignForm = () => {
   const navigate = useNavigate();
@@ -35,10 +37,10 @@ const CampaignForm = () => {
         }
       } catch (error) {
         console.error('Error:', error);
-        alert('Error creating campaign');
+        toast('Error creating campaign');
       }
     } else {
-      alert('Enter the campaign name');
+      toast('Enter the campaign name');
     }
   };
 
@@ -75,6 +77,7 @@ const CampaignForm = () => {
           </button>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

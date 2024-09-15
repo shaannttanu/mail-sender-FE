@@ -44,7 +44,7 @@
 
 .file-input::file-selector-button {
     padding: 10px;
-    background-color: #007bff;
+    background-color: #563a94;
     border: none;
     border-radius: 4px;
     color: #fff;
@@ -76,19 +76,19 @@
 }
 
 .upload {
-    background-color: #f44336;
+    background-color: #563a94;
 }
 
 .upload:hover {
-    background-color: #0056b3;
+    background-color: #372560;
 }
 
 .cancel {
-    background-color: #007bff;
+    background-color: #563a94;
 }
 
 .cancel:hover {
-    background-color: #0056b3;
+    background-color: #372560;
 }
 
 .modal-button:disabled {

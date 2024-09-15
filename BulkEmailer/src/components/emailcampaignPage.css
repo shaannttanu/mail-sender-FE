@@ -272,11 +272,15 @@ body {
   margin-left: 5px;
 }
 
-.label {
+.action-button-label {
+  padding: 10px 20px;
   font-size: 0.875rem;
-  font-style: normal;
-  font-weight: normal;
-  color: #fff;
+  background-color: #6b49bb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
 }
 
 h4{
