@@ -72,8 +72,7 @@ const EmailCampaign = () => {
         {
             const file = event.target.files[0]; 
             if (file) {
-            setFileName(file.name); 
-            toast.success("File Attached To Your Email..");
+            setFileName(file.name); // Update the file name in the state
             }
         }
         catch(e)
@@ -172,24 +171,25 @@ const EmailCampaign = () => {
                         <button className="action-button" onClick={selectSenderClick}>Select sender</button>
                     </div>
                     <p>{selectedSender ? `Sender is: ${selectedSender}` : "Who is sending this email campaign?"}</p>
-                    {senderDropdownOpen && (<div className="dropdown-box">
+                    {senderDropdownOpen && (
+                        <div className="dropdown-box">
                             <ul className="dropdown">
-                            <li className="dropdown-item" onClick={() => handleSenderSelect("Yash Garg")}>
-                                Yash Garg
-                                <h4> yash.garg1@ofbusiness.in</h4>
-                                <hr></hr>
-                            </li>
-                            <li className="dropdown-item" onClick={() => handleSenderSelect("Shantanu Singh")}>
-                                Shantanu Singh
-                                <h4> shantanu.singh@ofbusiness.in</h4>
-                                <hr></hr>
-                            </li>
-                            <li className="dropdown-item" onClick={() => handleSenderSelect("Naman Jain")}>
-                                Naman jain
-                                <h4> naman.jain@ofbusiness.in</h4>
-                            </li>
-                        </ul>
-                            </div>
+                                <li className="dropdown-item" onClick={() => handleSenderSelect("Yash Garg")}>
+                                    Yash Garg
+                                    <h4> yash.garg1@ofbusiness.in</h4>
+                                    <hr></hr>
+                                </li>
+                                <li className="dropdown-item" onClick={() => handleSenderSelect("Shantanu Singh")}>
+                                    Shantanu Singh
+                                    <h4> shantanu.singh@ofbusiness.in</h4>
+                                    <hr></hr>
+                                </li>
+                                <li className="dropdown-item" onClick={() => handleSenderSelect("Naman Jain")}>
+                                    Naman jain
+                                    <h4> naman.jain@ofbusiness.in</h4>
+                                </li>
+                            </ul>
+                        </div>
                     )}
                 </div>
 
@@ -269,7 +269,7 @@ const EmailCampaign = () => {
                         Attach File
                         <input 
                         type="file" 
-                        style={{ display: 'none' }} 
+                        style={{ display: 'none' }}
                         onChange={handleFileChange} 
                         />
                     </label>
