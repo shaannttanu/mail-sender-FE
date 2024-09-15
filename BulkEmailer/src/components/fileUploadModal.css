@@ -16,27 +16,36 @@
     border-radius: 8px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     width: 400px;
+    max-width: 100%;
+    box-sizing: border-box;
+    /* Ensures padding is included in width */
     text-align: center;
 }
 
 .modal-title {
     margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
 }
 
 .file-input {
     display: block;
-    margin: 10px auto;
+    margin: 20px auto;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 0.9rem;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    /* Ensures padding and border are included in width */
 }
 
-.modal-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.modal-button {
-    padding: 10px 15px;
+.file-input::file-selector-button {
+    padding: 10px;
     background-color: #007bff;
+    /* Blue button color */
     border: none;
     border-radius: 4px;
     color: #fff;
@@ -45,24 +54,49 @@
     transition: background-color 0.2s ease;
 }
 
-.modal-button:hover {
+.file-input::file-selector-button:hover {
     background-color: #0056b3;
+    /* Darker blue on hover */
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background-color 0.2s ease;
+    width: 120px;
+    /* Fixed width for consistency */
 }
 
 .upload {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #007bff;
+    /* Blue button color */
 }
 
 .upload:hover {
-    background-color: #45a049;
+    background-color: #0056b3;
+    /* Darker blue on hover */
 }
 
 .cancel {
     background-color: #f44336;
-    color: white;
 }
 
 .cancel:hover {
     background-color: #e53935;
+}
+
+.modal-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }

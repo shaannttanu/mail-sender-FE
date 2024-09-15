@@ -151,7 +151,7 @@ const EmailCampaign = () => {
                         <h3>Recipients</h3>
                         <div className="button-group">
                             <button className="action-button" onClick={downloadTemplate}>Download Template</button>
-                            <button className="action-button" onClick={openModal}>Choose File</button>
+                            <button className="action-button" onClick={openModal}>Upload File</button>
                         </div>
                     </div>
                     <div className="email-list">

@@ -55,8 +55,16 @@ const UploadModal = ({ onClose, onUpload }) => {
                     className="file-input"
                 />
                 <div className="modal-buttons">
-                    <button className="modal-button" onClick={handleUploadClick}>Upload Excel</button>
-                    <button className="modal-button" onClick={onClose}>Cancel</button>
+                    <button
+                        className="modal-button upload"
+                        onClick={handleUploadClick}
+                        disabled={!selectedFile} // Disable button if no file selected
+                    >
+                        Upload
+                    </button>
+                    <button className="modal-button cancel" onClick={onClose}>
+                        Cancel
+                    </button>
                 </div>
             </div>
         </div>
