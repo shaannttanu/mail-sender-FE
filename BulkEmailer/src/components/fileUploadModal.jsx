@@ -26,14 +26,9 @@ const UploadModal = ({ onClose, onUpload }) => {
             if (response.ok) {
                 const result = await response.json();
                 console.log('File uploaded successfully:', result);
-
-                // Extract emails from the API response
                 const emailList = Object.values(result.data).flat().filter(Boolean);
 
-                // Pass the emails back to the parent component (EmailCampaign)
                 onUpload(emailList);
-
-                // Close the modal
                 onClose();
             } else {
                 alert('Error uploading file');
@@ -58,7 +53,7 @@ const UploadModal = ({ onClose, onUpload }) => {
                     <button
                         className="modal-button upload"
                         onClick={handleUploadClick}
-                        disabled={!selectedFile} // Disable button if no file selected
+                        disabled={!selectedFile} 
                     >
                         Upload
                     </button>

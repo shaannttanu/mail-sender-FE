@@ -18,7 +18,6 @@
     width: 400px;
     max-width: 100%;
     box-sizing: border-box;
-    /* Ensures padding is included in width */
     text-align: center;
 }
 
@@ -39,7 +38,6 @@
     font-size: 0.9rem;
     background-color: #f9f9f9;
     box-sizing: border-box;
-    /* Ensures padding and border are included in width */
 }
 
 .file-input::file-selector-button {
@@ -56,7 +54,6 @@
 
 .file-input::file-selector-button:hover {
     background-color: #0056b3;
-    /* Darker blue on hover */
 }
 
 .modal-buttons {
@@ -75,17 +72,14 @@
     font-size: 0.8rem;
     transition: background-color 0.2s ease;
     width: 120px;
-    /* Fixed width for consistency */
 }
 
 .upload {
     background-color: #007bff;
-    /* Blue button color */
 }
 
 .upload:hover {
     background-color: #0056b3;
-    /* Darker blue on hover */
 }
 
 .cancel {

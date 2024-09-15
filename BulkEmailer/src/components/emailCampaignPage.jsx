@@ -54,14 +54,14 @@ const EmailCampaign = () => {
         setSubject('');
     };
 
-    const [fileName, setFileName] = useState(""); // Empty state initially
+    const [fileName, setFileName] = useState(""); 
       
     const handleFileChange = (event) => {
         try
         {
-            const file = event.target.files[0]; // Get the selected file
+            const file = event.target.files[0]; 
             if (file) {
-            setFileName(file.name); // Update the file name in the state
+            setFileName(file.name); 
             toast.success("File Attached To Your Email..");
             }
         }
@@ -91,11 +91,10 @@ const EmailCampaign = () => {
         toast.success("Emails copied to clipboard..")
         setTimeout(() => {
             setCopyButtonText('Copy');
-        }, 2000); // Reset the button text after 2 seconds
+        }, 2000); 
     };
 
     const renderEmails = () => {
-        // Combine the emails into a single string and join them with commas
         const emailString = emails.join(', ');
         const maxVisibleLength = 40;
 
