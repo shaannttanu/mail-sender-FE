@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { useLocation, useNavigate } from 'react-router-dom';
 import UploadModal from "./fileUploadModal";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { ToastContainer, toast, useToast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const EmailCampaign = () => {
     const location = useLocation();
@@ -48,8 +50,29 @@ const EmailCampaign = () => {
     const submitSubject = () => {
         setSubjectName(subject);
         setSubjectOpen(false);
+        toast.success("Subject Added Successfully..");
         setSubject('');
     };
+
+    const [fileName, setFileName] = useState(""); // Empty state initially
+      
+    const handleFileChange = (event) => {
+        try
+        {
+            const file = event.target.files[0]; // Get the selected file
+            if (file) {
+            setFileName(file.name); // Update the file name in the state
+            toast.success("File Attached To Your Email..");
+            }
+        }
+        catch(e)
+        {
+            console.log(e);
+            toast.error("Some error occured while uploading file!!");
+        }
+        
+    };
+
 
     const openModal = () => setModalOpen(true);
     const closeModal = () => setModalOpen(false);
@@ -65,6 +88,7 @@ const EmailCampaign = () => {
 
     const handleCopy = () => {
         setCopyButtonText('Copied!');
+        toast.success("Emails copied to clipboard..")
         setTimeout(() => {
             setCopyButtonText('Copy');
         }, 2000); // Reset the button text after 2 seconds
@@ -116,10 +140,11 @@ const EmailCampaign = () => {
             document.body.appendChild(link);
             link.click();
             link.parentNode.removeChild(link);
+            toast.success("Template Downloaded for your reference");
         })
         .catch(error => {
             console.error('Error downloading template:', error);
-            alert('Error downloading template');
+            toast.error('Error downloading template');
         });
     };
 
@@ -137,12 +162,24 @@ const EmailCampaign = () => {
                         <button className="action-button" onClick={selectSenderClick}>Select sender</button>
                     </div>
                     <p>{selectedSender ? `Sender is: ${selectedSender}` : "Who is sending this email campaign?"}</p>
-                    {senderDropdownOpen && (
-                        <ul className="dropdown">
-                            <li className="dropdown-item" onClick={() => handleSenderSelect("Yash Garg")}>Yash Garg</li>
-                            <li className="dropdown-item" onClick={() => handleSenderSelect("Shantanu Singh")}>Shantanu Singh</li>
-                            <li className="dropdown-item" onClick={() => handleSenderSelect("Naman Jain")}>Naman Jain</li>
+                    {senderDropdownOpen && (<div className="dropdown-box">
+                            <ul className="dropdown">
+                            <li className="dropdown-item" onClick={() => handleSenderSelect("Yash Garg")}>
+                                Yash Garg
+                                <h4> yash.garg1@ofbusiness.in</h4>
+                                <hr></hr>
+                            </li>
+                            <li className="dropdown-item" onClick={() => handleSenderSelect("Shantanu Singh")}>
+                                Shantanu Singh
+                                <h4> shantanu.singh@ofbusiness.in</h4>
+                                <hr></hr>
+                            </li>
+                            <li className="dropdown-item" onClick={() => handleSenderSelect("Naman Jain")}>
+                                Naman jain
+                                <h4> naman.jain@ofbusiness.in</h4>
+                            </li>
                         </ul>
+                            </div>
                     )}
                 </div>
 
@@ -203,9 +240,32 @@ const EmailCampaign = () => {
                         placeholder="Write your email content here..."
                     ></textarea>
                 </div>
-            </div>
+
 
             {modalOpen && <UploadModal onClose={closeModal} onUpload={handleUploadedEmails} />}
+            
+            <div className="section">
+                <div className="section-header">
+                    <h3>Email Attachments</h3>
+                    <div className="button-group">
+                    <label className="action-button label">
+                        Attach File
+                        <input 
+                        type="file" 
+                        style={{ display: 'none' }} 
+                        onChange={handleFileChange} 
+                        />
+                    </label>
+                    </div>
+                </div>
+                <p>{fileName || "Add your attachments here..."}</p> {/* Display default text if no file is selected */}
+                </div>
+
+            </div>
+
+                <button className="btn submit" >Send Email</button>
+
+                <ToastContainer />
         </div>
     );
 };
