@@ -2,14 +2,17 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-color: #ffffff; /* Light blue background for the body */
+  background-color: #ffffff;
+  /* Light blue background for the body */
 }
 
 .campaign-form {
   max-width: 600px;
-  margin: 100px auto; /* Center the form vertically and horizontally */
+  margin: 100px auto;
+  /* Center the form vertically and horizontally */
   padding: 20px;
-  background-color: #ffffff; /* White background for the form */
+  background-color: #ffffff;
+  /* White background for the form */
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   text-align: center;
@@ -19,7 +22,8 @@ body {
   font-size: 2.5rem;
   font-weight: bold;
   color: #333;
-  margin-bottom: 30px; /* Increase the space between title and form elements */
+  margin-bottom: 30px;
+  /* Increase the space between title and form elements */
 }
 
 .form-group {
@@ -39,7 +43,8 @@ body {
   padding: 12px;
   font-size: 1.2rem;
   margin: 19px;
-  border: 2px solid #6b49bb; /* Blue border for the input */
+  border: 2px solid #6b49bb;
+  /* Blue border for the input */
   border-radius: 10px;
 }
 
@@ -59,14 +64,19 @@ body {
 
 .cancel {
   background-color: transparent;
-  color: #6b49bb; /* Purple text color */
-  border: none; /* Remove border */
+  color: #6b49bb;
+  /* Purple text color */
+  border: none;
+  /* Remove border */
 }
 
 .submit {
-  background-color: #000000; /* Black background color */
-  color: white; /* White text color */
-  border: -10px solid #000000; /* Black border */
+  background-color: #000000;
+  /* Black background color */
+  color: white;
+  /* White text color */
+  border: -10px solid #000000;
+  /* Black border */
   border-radius: 20%;
 }
 
