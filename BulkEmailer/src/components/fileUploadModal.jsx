@@ -57,7 +57,7 @@ const UploadModal = ({ onClose, onUpload }) => {
                     <button
                         className="modal-button upload"
                         onClick={handleUploadClick}
-                        disabled={!selectedFile} // Disable button if no file selected
+                        disabled={!selectedFile}
                     >
                         Upload
                     </button>

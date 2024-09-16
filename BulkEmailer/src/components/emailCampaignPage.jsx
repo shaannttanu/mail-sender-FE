@@ -25,7 +25,7 @@ const EmailCampaign = () => {
     const [emailContent, setEmailContent] = useState("");
 
     const handleContentChange = (e) => {
-        setEmailContent(e.target.value); // Update state with the current value
+        setEmailContent(e.target.value); 
       };
     
 
@@ -153,10 +153,8 @@ const EmailCampaign = () => {
             throw new Error(`HTTP error! status: ${response.status}`);
           }
       
-          // Parse the response
           const data = await response.json();
           
-          // Return the status from the API response
           return data.status;
         } catch (error) {
           console.error('Error sending email:', error);
