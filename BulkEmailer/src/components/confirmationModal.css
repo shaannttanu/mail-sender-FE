@@ -1,5 +1,5 @@
 .modal-overlay {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -36,11 +36,11 @@
 }
 
 .ok-btn {
-    background-color: #f44336;
+    background-color: #563a94;
     
 }
 
 .cancel-btn {
-    background-color: #007bff;
+    background-color: #563a94;
     
 }

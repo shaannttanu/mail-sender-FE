@@ -1,6 +1,8 @@
 import './campaignform.css'; 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast, useToast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CampaignForm = () => {
   const navigate = useNavigate();
@@ -31,14 +33,14 @@ const CampaignForm = () => {
           navigate('/campaignPage', { state: { campaignName: formData.campaignName, campaignId: data.id } });
         } else {
           console.error('Failed to create campaign, response status:', response.status);
-          alert('Failed to create campaign');
+          toast.error('Failed to create campaign');
         }
       } catch (error) {
         console.error('Error:', error);
-        alert('Error creating campaign');
+        toast.error('Error creating campaign');
       }
     } else {
-      alert('Enter the campaign name');
+      toast.error('Enter the campaign name');
     }
   };
 
@@ -69,12 +71,13 @@ const CampaignForm = () => {
           <button 
             className="btn submit" 
             onClick={handleSubmit}
-            disabled={!formData.campaignName.trim()}
+            // disabled={!formData.campaignName.trim()}
           >
             Submit
           </button>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
