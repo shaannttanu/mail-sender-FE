@@ -44,8 +44,8 @@
 
 .file-input::file-selector-button {
     padding: 10px;
-    background-color: #563a94;
-    background-color: #563a94;
+    background-color: #007bff;
+    /* Blue button */
     border: none;
     border-radius: 4px;
     color: #fff;
@@ -55,7 +55,8 @@
 }
 
 .file-input::file-selector-button:hover {
-    background-color: #6b49bb;
+    background-color: #0056b3;
+    /* Darker blue on hover */
 }
 
 .modal-buttons {
@@ -77,19 +78,23 @@
 }
 
 .upload {
-    background-color: #563a94;
+    background-color: #007bff;
+    /* Blue button */
 }
 
 .upload:hover {
-    background-color: #6b49bb;
+    background-color: #0056b3;
+    /* Darker blue on hover */
 }
 
 .cancel {
-    background-color: #563a94;
+    background-color: #007bff;
+    /* Blue cancel button */
 }
 
 .cancel:hover {
-    background-color: #6b49bb;
+    background-color: #0056b3;
+    /* Darker blue on hover */
 }
 
 .modal-button:disabled {

@@ -203,7 +203,7 @@ const EmailCampaign = () => {
                 <button className="back-button" onClick={backButton}>←</button>
                 <span className="back-text">{campaignName !== '' ? campaignName : "Back to campaign"}</span>
             </div>
-
+            
             <div className="campaign-container">
                 <div className="section">
                     <div className="section-header">
@@ -327,7 +327,11 @@ const EmailCampaign = () => {
 
             </div>
 
-                <button className="btn submit" onClick={sendEmail} >Send Email</button>
+                <div className="action-buttons">
+                    <button className="btn submit" onClick={sendEmail}>Send Email</button>
+                    <button className="schedule-mail-button">Schedule Mail</button>
+                </div>
+                
 
                 <ToastContainer />
         </div>
