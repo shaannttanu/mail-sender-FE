@@ -23,6 +23,7 @@ const EmailCampaign = () => {
     const [isDropdownOpen, setDropdownOpen] = useState(false);
     const [copyButtonText, setCopyButtonText] = useState('Copy');
     const [emailContent, setEmailContent] = useState("");
+    const [confirmationModalOpen, setConfirmationModalOpen] = useState(false);
 
     const handleContentChange = (e) => {
         setEmailContent(e.target.value); 
@@ -150,13 +151,17 @@ const EmailCampaign = () => {
       
           // Checking if the request was successful
           if (!response.ok) {
+            toast.error("Could not send mail!");
             throw new Error(`HTTP error! status: ${response.status}`);
+          }else{
+            toast.success("Mails Sent Successfully");
           }
       
           const data = await response.json();
           
           return data.status;
         } catch (error) {
+          toast.error("Could not send mail!");
           console.error('Error sending email:', error);
           return 'failed';
         }

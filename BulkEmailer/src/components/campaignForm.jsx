@@ -3,8 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast, useToast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer, toast, useToast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 
 const CampaignForm = () => {
   const navigate = useNavigate();
